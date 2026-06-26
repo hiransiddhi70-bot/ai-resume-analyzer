@@ -11,6 +11,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
     <script src="https://kit.fontawesome.com/6f7f6d2b7d.js" crossorigin="anonymous"></script>
 </head>
@@ -31,7 +32,7 @@
 
 </header>
 
-<section class="hero">
+<section class="hero" data-aos="fade-up">
 
     <h1>
         Analyze Your Resume Like an AI
@@ -43,7 +44,7 @@
     </p>
 
 </section>
-<section class="features" id="features">
+<section class="features" id="features" data-aos="fade-up">
 
     <h2>Why Choose AI Resume Analyzer?</h2>
     <p class="feature-subtitle">
@@ -119,7 +120,7 @@
     </div>
 
 </section>
-<section class="upload-box">
+<section class="upload-box" data-aos="fade-right">
 
     <h2>Upload Resume</h2>
 
@@ -135,7 +136,7 @@
 
 </section>
 
-<section class="result-card">
+<section class="result-card" data-aos="fade-left">
 
     <h2>Analysis Report</h2>
 
@@ -151,7 +152,7 @@
     </div>
 
 </section>
-<section class="about" id="about">
+<section class="about" id="about" data-aos="zoom-in">
 
     <h2>About AI Resume Analyzer</h2>
 
@@ -267,5 +268,13 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
 <script src="script.js"></script>
 
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<script>
+AOS.init({
+    duration:1000,
+    once:true
+});
+</script>
 </body>
 </html>
