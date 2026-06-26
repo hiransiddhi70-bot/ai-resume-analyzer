@@ -464,3 +464,34 @@ nav{
         background-position:0% 50%;
     }
 }
+.drop-area{
+    border:3px dashed #38bdf8;
+    border-radius:20px;
+    padding:50px 20px;
+    margin:30px 0;
+    text-align:center;
+    transition:.4s;
+    cursor:pointer;
+    background:rgba(255,255,255,.05);
+}
+
+.drop-area:hover{
+    background:rgba(56,189,248,.12);
+    transform:scale(1.02);
+}
+
+.drop-area i{
+    font-size:65px;
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+.drop-area h3{
+    font-size:28px;
+    margin-bottom:10px;
+}
+
+.drop-area p{
+    color:#cbd5e1;
+    margin-bottom:20px;
+}
