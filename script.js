@@ -1,87 +1,119 @@
-document.getElementById("analyzeBtn").addEventListener("click", () => {
+const analyzeBtn = document.getElementById("analyzeBtn");
+const fileInput = document.getElementById("resumeFile");
 
-    const file = document.getElementById("resumeFile").files[0];
+analyzeBtn.addEventListener("click", async () => {
+
+    const file = fileInput.files[0];
 
     if (!file) {
-        alert("Please upload your resume first.");
+        alert("Please upload a resume.");
         return;
     }
 
-    const reader = new FileReader();
+    let text = "";
 
-    reader.onload = function (e) {
+    if (file.type === "application/pdf") {
 
-        const text = e.target.result.toLowerCase();
+        const reader = new FileReader();
 
-        let score = 0;
-        let suggestions = [];
+        reader.onload = async function () {
 
-        // Email
-        if (text.includes("@")) {
-            score += 15;
-        } else {
-            suggestions.push("❌ Add a professional email address.");
-        }
+            const typedArray = new Uint8Array(reader.result);
 
-        // Phone
-        if (/\d{10}/.test(text)) {
-            score += 15;
-        } else {
-            suggestions.push("❌ Add your phone number.");
-        }
+            const pdf = await pdfjsLib.getDocument(typedArray).promise;
 
-        // Education
-        if (text.includes("education")) {
-            score += 15;
-        } else {
-            suggestions.push("❌ Education section missing.");
-        }
+            for (let i = 1; i <= pdf.numPages; i++) {
 
-        // Skills
-        if (text.includes("skills")) {
-            score += 15;
-        } else {
-            suggestions.push("❌ Skills section missing.");
-        }
+                const page = await pdf.getPage(i);
 
-        // Experience
-        if (text.includes("experience")) {
-            score += 15;
-        } else {
-            suggestions.push("❌ Experience section missing.");
-        }
+                const content = await page.getTextContent();
 
-        // Projects
-        if (text.includes("project")) {
-            score += 15;
-        } else {
-            suggestions.push("❌ Projects section missing.");
-        }
+                text += content.items.map(item => item.str).join(" ");
 
-        // Certifications
-        if (text.includes("certification")) {
-            score += 10;
-        } else {
-            suggestions.push("💡 Add certifications if you have any.");
-        }
+            }
 
-        document.getElementById("score").innerText = score + "%";
+            analyzeResume(text.toLowerCase());
 
-        let html = "";
+        };
 
-        if (suggestions.length === 0) {
-            html = "🎉 Excellent Resume! ATS Friendly.";
-        } else {
-            html = "<h3>Suggestions</h3><br>";
-            suggestions.forEach(item => {
-                html += `<p>${item}</p>`;
-            });
-        }
+        reader.readAsArrayBuffer(file);
 
-        document.getElementById("result").innerHTML = html;
+    } else {
 
-    };
+        const reader = new FileReader();
 
-    reader.readAsText(file);
+        reader.onload = function (e) {
+
+            analyzeResume(e.target.result.toLowerCase());
+
+        };
+
+        reader.readAsText(file);
+
+    }
 
 });
+
+function analyzeResume(text) {
+
+    let score = 0;
+    let result = "";
+
+    const checks = [
+        ["education",15],
+        ["experience",15],
+        ["skills",15],
+        ["project",15],
+        ["certification",10],
+        ["@",15]
+    ];
+
+    checks.forEach(item=>{
+        if(text.includes(item[0])) score += item[1];
+    });
+
+    const skills = [
+        "html","css","javascript","react",
+        "python","java","c++","sql",
+        "git","node","ai","machine learning"
+    ];
+
+    let found = [];
+
+    skills.forEach(skill=>{
+        if(text.includes(skill)){
+            found.push(skill);
+        }
+    });
+
+    result += `<h3>✅ ATS Score : ${score}%</h3><br>`;
+
+    result += `<h3>🛠 Skills Detected</h3>`;
+
+    if(found.length===0){
+        result += "<p>No major skills detected.</p>";
+    }else{
+        result += found.map(skill=>`<span style="display:inline-block;background:#2563eb;padding:8px 14px;border-radius:20px;margin:5px;">${skill}</span>`).join("");
+    }
+
+    result += "<br><br>";
+
+    if(score>=80){
+
+        result+="🎉 Excellent ATS Resume!";
+
+    }else if(score>=60){
+
+        result+="👍 Good Resume. Add more projects and certifications.";
+
+    }else{
+
+        result+="⚠ Improve your resume by adding missing sections.";
+
+    }
+
+    document.getElementById("score").innerText = score + "%";
+
+    document.getElementById("result").innerHTML = result;
+
+}
