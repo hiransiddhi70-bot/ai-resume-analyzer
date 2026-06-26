@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Resume Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script src="https://kit.fontawesome.com/6f7f6d2b7d.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        🤖 AI Resume Analyzer
+    </div>
+
+    <nav>
+        <a href="#">Home</a>
+        <a href="#">Features</a>
+        <a href="#">About</a>
+    </nav>
+
+</header>
+
+<section class="hero">
+
+    <h1>
+        Analyze Your Resume Like an AI
+    </h1>
+
+    <p>
+        Upload your resume and instantly receive an ATS score,
+        missing sections, smart suggestions and improvement tips.
+    </p>
+
+</section>
+
+<section class="upload-box">
+
+    <h2>Upload Resume</h2>
+
+    <input type="file" id="resumeFile">
+
+    <button id="analyzeBtn">
+        Analyze Resume
+    </button>
+
+</section>
+
+<section class="result-card">
+
+    <h2>Analysis Report</h2>
+
+    <div class="score">
+        ATS Score
+        <span id="score">0%</span>
+    </div>
+
+    <div id="result">
+
+        <p>📄 Upload a resume to begin analysis.</p>
+
+    </div>
+
+</section>
+
+<footer>
+
+    <p>
+        Built with ❤️ by Siddhi Hiran |
+        #20Days20AIProjects
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>
