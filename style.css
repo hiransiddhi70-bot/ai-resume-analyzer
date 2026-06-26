@@ -1,3 +1,6 @@
+html{
+    scroll-behavior:smooth;
+}
 *{
     margin:0;
     padding:0;
@@ -41,8 +44,25 @@ header{
 nav a{
     color:white;
     text-decoration:none;
-    margin-left:25px;
+    margin-left:28px;
+    font-weight:500;
     transition:.3s;
+    position:relative;
+}
+
+nav a::after{
+    content:"";
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0%;
+    height:2px;
+    background:#38bdf8;
+    transition:.3s;
+}
+
+nav a:hover::after{
+    width:100%;
 }
 
 nav a:hover{
