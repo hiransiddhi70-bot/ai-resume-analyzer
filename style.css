@@ -1,0 +1,162 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#0f172a,#1e293b,#111827);
+    color:#fff;
+    min-height:100vh;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 8%;
+    backdrop-filter:blur(10px);
+}
+
+.logo{
+    font-size:24px;
+    font-weight:700;
+    color:#38bdf8;
+}
+
+nav a{
+    color:white;
+    text-decoration:none;
+    margin-left:25px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:#38bdf8;
+}
+
+.hero{
+    text-align:center;
+    padding:80px 20px 50px;
+}
+
+.hero h1{
+    font-size:48px;
+    margin-bottom:20px;
+}
+
+.hero p{
+    max-width:700px;
+    margin:auto;
+    color:#cbd5e1;
+    line-height:1.7;
+}
+
+.upload-box{
+    width:90%;
+    max-width:650px;
+    margin:40px auto;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+    text-align:center;
+}
+
+.upload-box h2{
+    margin-bottom:20px;
+}
+
+input[type=file]{
+    width:100%;
+    padding:15px;
+    border:2px dashed #38bdf8;
+    border-radius:12px;
+    color:white;
+    background:transparent;
+    margin-bottom:25px;
+}
+
+button{
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:#38bdf8;
+    color:#000;
+    font-size:18px;
+    font-weight:600;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:scale(1.05);
+}
+
+.result-card{
+    width:90%;
+    max-width:800px;
+    margin:40px auto;
+    padding:35px;
+    border-radius:20px;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(18px);
+    border:1px solid rgba(255,255,255,.15);
+}
+
+.result-card h2{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.score{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:25px;
+}
+
+.score span{
+    display:block;
+    margin-top:10px;
+    font-size:55px;
+    color:#22c55e;
+    font-weight:bold;
+}
+
+#result{
+    color:#e2e8f0;
+    line-height:1.8;
+}
+
+footer{
+    margin-top:60px;
+    text-align:center;
+    padding:20px;
+    color:#94a3b8;
+}
+
+@media(max-width:768px){
+
+header{
+    flex-direction:column;
+}
+
+nav{
+    margin-top:15px;
+}
+
+.hero h1{
+    font-size:34px;
+}
+
+.hero p{
+    font-size:15px;
+}
+
+.score span{
+    font-size:42px;
+}
+
+}
