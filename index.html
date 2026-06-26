@@ -132,7 +132,21 @@
 
     <h2>Upload Resume</h2>
 
-    <input type="file" id="resumeFile" accept=".pdf,.txt">
+    <div class="drop-area" id="dropArea">
+
+    <i class="fas fa-cloud-upload-alt"></i>
+
+    <h3>Drag & Drop Your Resume</h3>
+
+    <p>or click to browse</p>
+
+    <input type="file" id="resumeFile" accept=".pdf,.txt" hidden>
+
+    <button onclick="document.getElementById('resumeFile').click()">
+        Choose File
+    </button>
+
+</div>
 
     <button id="analyzeBtn">
     🚀 Analyze Resume
