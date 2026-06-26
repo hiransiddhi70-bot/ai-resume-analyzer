@@ -160,3 +160,15 @@ nav{
 }
 
 }
+#loading{
+    color:#38bdf8;
+    font-size:18px;
+    font-weight:600;
+    animation:blink 1s infinite;
+}
+
+@keyframes blink{
+    0%{opacity:0.2;}
+    50%{opacity:1;}
+    100%{opacity:0.2;}
+}
