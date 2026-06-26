@@ -9,6 +9,7 @@ analyzeBtn.addEventListener("click", async () => {
         alert("Please upload a resume.");
         return;
     }
+document.getElementById("loading").style.display = "block";
 
     let text = "";
 
@@ -117,3 +118,4 @@ function analyzeResume(text) {
     document.getElementById("result").innerHTML = result;
 
 }
+document.getElementById("loading").style.display = "none";
