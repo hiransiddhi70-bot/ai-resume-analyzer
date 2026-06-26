@@ -120,7 +120,6 @@ function analyzeResume(text) {
 }
 document.getElementById("loading").style.display = "none";
 const dropArea = document.getElementById("dropArea");
-const fileInput = document.getElementById("resumeFile");
 
 dropArea.addEventListener("dragover",(e)=>{
     e.preventDefault();
