@@ -328,3 +328,49 @@ nav{
 .step p{
     color:#e2e8f0;
 }
+.stats{
+    width:90%;
+    max-width:1200px;
+    margin:80px auto;
+    text-align:center;
+}
+
+.stats h2{
+    font-size:38px;
+    color:#38bdf8;
+}
+
+.stats p{
+    color:#cbd5e1;
+    margin:15px 0 40px;
+}
+
+.stats-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:25px;
+}
+
+.stat-card{
+    background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:20px;
+    padding:35px;
+    backdrop-filter:blur(15px);
+    transition:.4s;
+}
+
+.stat-card:hover{
+    transform:translateY(-10px) scale(1.03);
+    box-shadow:0 15px 35px rgba(56,189,248,.35);
+}
+
+.stat-card h3{
+    font-size:42px;
+    color:#38bdf8;
+    margin-bottom:10px;
+}
+
+.stat-card span{
+    color:#e2e8f0;
+}
